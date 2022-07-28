@@ -22,7 +22,7 @@ docker compose -f docker-compose.yml up -d
 [ $? != 0 ] && echo "Failed to start Docker services" && exit
 
 bin/clinotty chmod u+x bin/magento
-rm -rf src && mkdir src
+#rm -rf src && mkdir src
 
 echo "Adding Magento modules to Composer allow-plugins directive..."
 bin/clinotty composer config --no-plugins allow-plugins.magento/magento-composer-installer true
@@ -83,8 +83,8 @@ bin/clinotty bin/magento setup:install \
   --use-rewrites=1 \
   --no-interaction
 
-echo "Copying files from container to host after install..."
-bin/copyfromcontainer --all
+#echo "Copying files from container to host after install..."
+#bin/copyfromcontainer --all
 
 echo "Forcing deploy of static content to speed up initial requests..."
 bin/clinotty bin/magento setup:static-content:deploy -f
