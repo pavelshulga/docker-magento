@@ -1,0 +1,13 @@
+**/src/packages
+**/src/packages/*
+src/admin/media
+src/admin/sitemap
+src/pub/media
+src/pub/sitemap
+src/pub/static/_cache
+src/var/_cache
+src/var/report
+src/var/lock
+**/.git
+**/*.md
+**/_cache

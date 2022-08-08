@@ -36,7 +36,7 @@ View Dockerfiles for the latest tags:
   - [`7.16`, `7.16-0`](https://github.com/markshust/docker-magento/tree/master/images/elasticsearch/7.16)
 - [markoshust/magento-rabbitmq (Docker Hub)](https://hub.docker.com/r/markoshust/magento-rabbitmq/)
   - [`3.9`, `3.9-0`](https://github.com/markshust/docker-magento/tree/master/images/rabbitmq/3.9)
-- [markoshust/ssh (Docker Hub)](https://hub.docker.com/r/markoshust/magento-ssh/)
+- [markoshust/ssh (Docker Hub)](https://hub.docker.com/r/markoshust/ssh/)
   - [`latest`](https://github.com/markshust/docker-magento/tree/master/images/ssh)
 
 ## Free Course

@@ -3,7 +3,7 @@
 
 REAL_SRC=$(cd -P "src" && pwd)
 if [ "$1" == "--all" ]; then
-  docker cp "$REAL_SRC/./" "$(docker compose ps -q phpfpm|awk '{print $1}')":/var/www/html/
+  docker cp -L "$REAL_SRC/./" "$(docker compose ps -q phpfpm|awk '{print $1}')":/var/www/html/
   echo "Completed copying all files from host to container"
   bin/fixowns
   bin/fixperms
