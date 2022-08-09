@@ -25,7 +25,7 @@ services:
       - appdata:/var/www/html
       - sockdata:/sock
       - ssldata:/etc/nginx/certs
-    #extra_hosts: &appextrahosts
+      #extra_hosts: &appextrahosts
       ## Selenium support, replace "magento.test" with URL of your site
       #- "magento.test:172.17.0.1"
 
@@ -34,6 +34,12 @@ services:
     volumes: *appvolumes
     env_file: env/phpfpm.env
     #extra_hosts: *appextrahosts
+
+  ssh:
+    image: markoshust/ssh
+    ports:
+      - "22:22"
+    volumes: *appvolumes
 
   db:
     image: mariadb:10.4
@@ -52,19 +58,19 @@ services:
     ports:
       - "6379:6379"
 
-  elasticsearch:
-    image: markoshust/magento-elasticsearch:7.16-0
-    ports:
-      - "9200:9200"
-      - "9300:9300"
-    environment:
-      - "discovery.type=single-node"
+      #  elasticsearch:
+      #    image: markoshust/magento-elasticsearch:7.16-0
+      #    ports:
+      #      - "9200:9200"
+      #      - "9300:9300"
+      #    environment:
+      #      - "discovery.type=single-node"
       ## Set custom heap size to avoid memory errors
-      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+      #      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
       ## Avoid test failures due to small disks
       ## More info at https://github.com/markshust/docker-magento/issues/488
-      - "cluster.routing.allocation.disk.threshold_enabled=false"
-      - "index.blocks.read_only_allow_delete"
+  #      - "cluster.routing.allocation.disk.threshold_enabled=false"
+  #      - "index.blocks.read_only_allow_delete"
 
   rabbitmq:
     image: markoshust/magento-rabbitmq:3.9-0
